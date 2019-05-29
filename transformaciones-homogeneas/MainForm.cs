@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace transformaciones_homogeneas
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        List<Point> points;
+
+        public MainForm()
         {
+            points = new List<Point>();
             InitializeComponent();
+        }
+
+        private void WorkSpace_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
