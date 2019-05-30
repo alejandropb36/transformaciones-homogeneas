@@ -37,13 +37,13 @@
             this.labelTrasladar = new System.Windows.Forms.Label();
             this.labelTrasladarX = new System.Windows.Forms.Label();
             this.labelTrasladarY = new System.Windows.Forms.Label();
-            this.textBoxPuntos = new System.Windows.Forms.TextBox();
             this.textBoxRotacion = new System.Windows.Forms.TextBox();
             this.textBoxEscalar = new System.Windows.Forms.TextBox();
             this.comboBoxReflectar = new System.Windows.Forms.ComboBox();
             this.textBoxTrasladarX = new System.Windows.Forms.TextBox();
             this.textBoxTrasladarY = new System.Windows.Forms.TextBox();
             this.buttonAplicar = new System.Windows.Forms.Button();
+            this.comboBoxPuntos = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // WorkSpace
@@ -136,13 +136,6 @@
             this.labelTrasladarY.TabIndex = 8;
             this.labelTrasladarY.Text = "Y: ";
             // 
-            // textBoxPuntos
-            // 
-            this.textBoxPuntos.Location = new System.Drawing.Point(866, 81);
-            this.textBoxPuntos.Name = "textBoxPuntos";
-            this.textBoxPuntos.Size = new System.Drawing.Size(100, 22);
-            this.textBoxPuntos.TabIndex = 9;
-            // 
             // textBoxRotacion
             // 
             this.textBoxRotacion.Location = new System.Drawing.Point(866, 128);
@@ -188,18 +181,35 @@
             this.buttonAplicar.Text = "Aplicar";
             this.buttonAplicar.UseVisualStyleBackColor = true;
             // 
+            // comboBoxPuntos
+            // 
+            this.comboBoxPuntos.FormattingEnabled = true;
+            this.comboBoxPuntos.Items.AddRange(new object[] {
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBoxPuntos.Location = new System.Drawing.Point(865, 80);
+            this.comboBoxPuntos.Name = "comboBoxPuntos";
+            this.comboBoxPuntos.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxPuntos.TabIndex = 16;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1061, 697);
+            this.Controls.Add(this.comboBoxPuntos);
             this.Controls.Add(this.buttonAplicar);
             this.Controls.Add(this.textBoxTrasladarY);
             this.Controls.Add(this.textBoxTrasladarX);
             this.Controls.Add(this.comboBoxReflectar);
             this.Controls.Add(this.textBoxEscalar);
             this.Controls.Add(this.textBoxRotacion);
-            this.Controls.Add(this.textBoxPuntos);
             this.Controls.Add(this.labelTrasladarY);
             this.Controls.Add(this.labelTrasladarX);
             this.Controls.Add(this.labelTrasladar);
@@ -227,13 +237,13 @@
         private System.Windows.Forms.Label labelTrasladar;
         private System.Windows.Forms.Label labelTrasladarX;
         private System.Windows.Forms.Label labelTrasladarY;
-        private System.Windows.Forms.TextBox textBoxPuntos;
         private System.Windows.Forms.TextBox textBoxRotacion;
         private System.Windows.Forms.TextBox textBoxEscalar;
         private System.Windows.Forms.ComboBox comboBoxReflectar;
         private System.Windows.Forms.TextBox textBoxTrasladarX;
         private System.Windows.Forms.TextBox textBoxTrasladarY;
         private System.Windows.Forms.Button buttonAplicar;
+        private System.Windows.Forms.ComboBox comboBoxPuntos;
     }
 }
 
