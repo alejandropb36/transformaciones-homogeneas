@@ -34,8 +34,7 @@ namespace transformaciones_homogeneas
 
         private void WorkSpace_MouseClick(object sender, MouseEventArgs e)
         {
-            Point centro, centroT;
-            List<Point> traslacion;
+            Point centro;
             if (contador < numeroPuntos)
             {
                 puntos.Add(new Point(e.X, e.Y));
@@ -47,15 +46,7 @@ namespace transformaciones_homogeneas
                 centro = GetPCentro(puntos);
                 DibujarFigura(puntos, Color.Blue);
                 WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Blue), centro.X, centro.Y, 2, 2);
-
-                /*Pruebas de Traslacion*/
-                traslacion = Traslacion(puntos, -12, -12);
-                centroT = GetPCentro(traslacion);
-                DibujarFigura(traslacion, Color.Red);
-                WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Red), centroT.X, centroT.Y, 2, 2);
-
                 contador = 0;
-                puntos.Clear();
             }
         }
 
@@ -153,6 +144,28 @@ namespace transformaciones_homogeneas
             }
 
             return traslacion;
+        }
+
+        public List<Point> Rotacion(List<Point> points, double grados)
+        {
+            List<Point> rotacion = new List<Point>();
+
+            return rotacion;
+        } 
+
+        private void buttonAplicar_Click(object sender, EventArgs e)
+        {
+            Point centro, centroT;
+            List<Point> traslacion;
+
+            /*Pruebas de Traslacion*/
+            centro = GetPCentro(puntos);
+            traslacion = Traslacion(puntos, -(centro.X), -(centro.Y));
+            centroT = GetPCentro(traslacion);
+            DibujarFigura(traslacion, Color.Red);
+            WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Red), centroT.X, centroT.Y, 2, 2);
+
+            puntos.Clear();
         }
     }
 }

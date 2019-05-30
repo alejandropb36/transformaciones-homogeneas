@@ -51,10 +51,10 @@
             // 
             this.WorkSpace.BackColor = System.Drawing.SystemColors.Window;
             this.WorkSpace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.WorkSpace.Location = new System.Drawing.Point(9, 10);
-            this.WorkSpace.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.WorkSpace.Location = new System.Drawing.Point(12, 12);
+            this.WorkSpace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.WorkSpace.Name = "WorkSpace";
-            this.WorkSpace.Size = new System.Drawing.Size(552, 547);
+            this.WorkSpace.Size = new System.Drawing.Size(735, 673);
             this.WorkSpace.TabIndex = 0;
             this.WorkSpace.MouseClick += new System.Windows.Forms.MouseEventHandler(this.WorkSpace_MouseClick);
             // 
@@ -62,10 +62,9 @@
             // 
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitulo.Location = new System.Drawing.Point(645, 21);
-            this.labelTitulo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTitulo.Location = new System.Drawing.Point(860, 26);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(73, 26);
+            this.labelTitulo.Size = new System.Drawing.Size(91, 31);
             this.labelTitulo.TabIndex = 1;
             this.labelTitulo.Text = "Figura";
             // 
@@ -73,10 +72,9 @@
             // 
             this.labelPuntos.AutoSize = true;
             this.labelPuntos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPuntos.Location = new System.Drawing.Point(574, 65);
-            this.labelPuntos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelPuntos.Location = new System.Drawing.Point(765, 80);
             this.labelPuntos.Name = "labelPuntos";
-            this.labelPuntos.Size = new System.Drawing.Size(63, 18);
+            this.labelPuntos.Size = new System.Drawing.Size(78, 24);
             this.labelPuntos.TabIndex = 2;
             this.labelPuntos.Text = "Puntos: ";
             // 
@@ -84,10 +82,9 @@
             // 
             this.labelRotacion.AutoSize = true;
             this.labelRotacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRotacion.Location = new System.Drawing.Point(574, 102);
-            this.labelRotacion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelRotacion.Location = new System.Drawing.Point(765, 126);
             this.labelRotacion.Name = "labelRotacion";
-            this.labelRotacion.Size = new System.Drawing.Size(76, 18);
+            this.labelRotacion.Size = new System.Drawing.Size(94, 24);
             this.labelRotacion.TabIndex = 3;
             this.labelRotacion.Text = "Rotación: ";
             // 
@@ -95,10 +92,9 @@
             // 
             this.labelEscalar.AutoSize = true;
             this.labelEscalar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEscalar.Location = new System.Drawing.Point(574, 139);
-            this.labelEscalar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelEscalar.Location = new System.Drawing.Point(765, 171);
             this.labelEscalar.Name = "labelEscalar";
-            this.labelEscalar.Size = new System.Drawing.Size(66, 18);
+            this.labelEscalar.Size = new System.Drawing.Size(82, 24);
             this.labelEscalar.TabIndex = 4;
             this.labelEscalar.Text = "Escalar: ";
             // 
@@ -106,10 +102,9 @@
             // 
             this.labelReflectar.AutoSize = true;
             this.labelReflectar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelReflectar.Location = new System.Drawing.Point(574, 176);
-            this.labelReflectar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelReflectar.Location = new System.Drawing.Point(765, 217);
             this.labelReflectar.Name = "labelReflectar";
-            this.labelReflectar.Size = new System.Drawing.Size(75, 18);
+            this.labelReflectar.Size = new System.Drawing.Size(93, 24);
             this.labelReflectar.TabIndex = 5;
             this.labelReflectar.Text = "Reflectar: ";
             // 
@@ -117,10 +112,9 @@
             // 
             this.labelTrasladar.AutoSize = true;
             this.labelTrasladar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTrasladar.Location = new System.Drawing.Point(639, 215);
-            this.labelTrasladar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTrasladar.Location = new System.Drawing.Point(852, 265);
             this.labelTrasladar.Name = "labelTrasladar";
-            this.labelTrasladar.Size = new System.Drawing.Size(70, 18);
+            this.labelTrasladar.Size = new System.Drawing.Size(88, 24);
             this.labelTrasladar.TabIndex = 6;
             this.labelTrasladar.Text = "Trasladar";
             // 
@@ -128,10 +122,9 @@
             // 
             this.labelTrasladarX.AutoSize = true;
             this.labelTrasladarX.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTrasladarX.Location = new System.Drawing.Point(608, 240);
-            this.labelTrasladarX.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTrasladarX.Location = new System.Drawing.Point(811, 295);
             this.labelTrasladarX.Name = "labelTrasladarX";
-            this.labelTrasladarX.Size = new System.Drawing.Size(26, 18);
+            this.labelTrasladarX.Size = new System.Drawing.Size(34, 24);
             this.labelTrasladarX.TabIndex = 7;
             this.labelTrasladarX.Text = "X: ";
             // 
@@ -139,27 +132,26 @@
             // 
             this.labelTrasladarY.AutoSize = true;
             this.labelTrasladarY.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTrasladarY.Location = new System.Drawing.Point(609, 279);
-            this.labelTrasladarY.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTrasladarY.Location = new System.Drawing.Point(812, 343);
             this.labelTrasladarY.Name = "labelTrasladarY";
-            this.labelTrasladarY.Size = new System.Drawing.Size(25, 18);
+            this.labelTrasladarY.Size = new System.Drawing.Size(32, 24);
             this.labelTrasladarY.TabIndex = 8;
             this.labelTrasladarY.Text = "Y: ";
             // 
             // textBoxRotacion
             // 
-            this.textBoxRotacion.Location = new System.Drawing.Point(650, 104);
-            this.textBoxRotacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxRotacion.Location = new System.Drawing.Point(867, 128);
+            this.textBoxRotacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRotacion.Name = "textBoxRotacion";
-            this.textBoxRotacion.Size = new System.Drawing.Size(76, 20);
+            this.textBoxRotacion.Size = new System.Drawing.Size(100, 22);
             this.textBoxRotacion.TabIndex = 10;
             // 
             // textBoxEscalar
             // 
-            this.textBoxEscalar.Location = new System.Drawing.Point(650, 141);
-            this.textBoxEscalar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxEscalar.Location = new System.Drawing.Point(867, 174);
+            this.textBoxEscalar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxEscalar.Name = "textBoxEscalar";
-            this.textBoxEscalar.Size = new System.Drawing.Size(76, 20);
+            this.textBoxEscalar.Size = new System.Drawing.Size(100, 22);
             this.textBoxEscalar.TabIndex = 11;
             // 
             // comboBoxReflectar
@@ -168,37 +160,38 @@
             this.comboBoxReflectar.Items.AddRange(new object[] {
             "X",
             "Y"});
-            this.comboBoxReflectar.Location = new System.Drawing.Point(650, 176);
-            this.comboBoxReflectar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxReflectar.Location = new System.Drawing.Point(867, 217);
+            this.comboBoxReflectar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxReflectar.Name = "comboBoxReflectar";
-            this.comboBoxReflectar.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxReflectar.Size = new System.Drawing.Size(121, 24);
             this.comboBoxReflectar.TabIndex = 12;
             // 
             // textBoxTrasladarX
             // 
-            this.textBoxTrasladarX.Location = new System.Drawing.Point(650, 241);
-            this.textBoxTrasladarX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTrasladarX.Location = new System.Drawing.Point(867, 297);
+            this.textBoxTrasladarX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTrasladarX.Name = "textBoxTrasladarX";
-            this.textBoxTrasladarX.Size = new System.Drawing.Size(76, 20);
+            this.textBoxTrasladarX.Size = new System.Drawing.Size(100, 22);
             this.textBoxTrasladarX.TabIndex = 13;
             // 
             // textBoxTrasladarY
             // 
-            this.textBoxTrasladarY.Location = new System.Drawing.Point(650, 280);
-            this.textBoxTrasladarY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTrasladarY.Location = new System.Drawing.Point(867, 345);
+            this.textBoxTrasladarY.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTrasladarY.Name = "textBoxTrasladarY";
-            this.textBoxTrasladarY.Size = new System.Drawing.Size(76, 20);
+            this.textBoxTrasladarY.Size = new System.Drawing.Size(100, 22);
             this.textBoxTrasladarY.TabIndex = 14;
             // 
             // buttonAplicar
             // 
-            this.buttonAplicar.Location = new System.Drawing.Point(681, 341);
-            this.buttonAplicar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAplicar.Location = new System.Drawing.Point(908, 420);
+            this.buttonAplicar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonAplicar.Name = "buttonAplicar";
-            this.buttonAplicar.Size = new System.Drawing.Size(94, 25);
+            this.buttonAplicar.Size = new System.Drawing.Size(125, 31);
             this.buttonAplicar.TabIndex = 15;
             this.buttonAplicar.Text = "Aplicar";
             this.buttonAplicar.UseVisualStyleBackColor = true;
+            this.buttonAplicar.Click += new System.EventHandler(this.buttonAplicar_Click);
             // 
             // comboBoxPuntos
             // 
@@ -212,18 +205,19 @@
             "8",
             "9",
             "10"});
-            this.comboBoxPuntos.Location = new System.Drawing.Point(649, 65);
-            this.comboBoxPuntos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxPuntos.Location = new System.Drawing.Point(865, 80);
+            this.comboBoxPuntos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxPuntos.Name = "comboBoxPuntos";
-            this.comboBoxPuntos.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxPuntos.Size = new System.Drawing.Size(121, 24);
             this.comboBoxPuntos.TabIndex = 16;
             this.comboBoxPuntos.SelectedIndexChanged += new System.EventHandler(this.comboBoxPuntos_SelectedIndexChanged);
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(592, 341);
+            this.buttonClear.Location = new System.Drawing.Point(789, 420);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(68, 25);
+            this.buttonClear.Size = new System.Drawing.Size(91, 31);
             this.buttonClear.TabIndex = 17;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -231,9 +225,9 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 566);
+            this.ClientSize = new System.Drawing.Size(1061, 697);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.comboBoxPuntos);
             this.Controls.Add(this.buttonAplicar);
@@ -251,7 +245,7 @@
             this.Controls.Add(this.labelPuntos);
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.WorkSpace);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Work Space";
             this.ResumeLayout(false);
