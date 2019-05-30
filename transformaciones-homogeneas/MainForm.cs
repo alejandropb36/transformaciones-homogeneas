@@ -34,7 +34,9 @@ namespace transformaciones_homogeneas
 
         private void WorkSpace_MouseClick(object sender, MouseEventArgs e)
         {
-            if(contador < numeroPuntos)
+            Point centro, centroT;
+            List<Point> traslacion;
+            if (contador < numeroPuntos)
             {
                 puntos.Add(new Point(e.X, e.Y));
                 contador++;
@@ -42,7 +44,16 @@ namespace transformaciones_homogeneas
             }
             if(contador == numeroPuntos)
             {
+                centro = GetPCentro(puntos);
                 DibujarFigura(puntos, Color.Blue);
+                WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Blue), centro.X, centro.Y, 2, 2);
+
+                /*Pruebas de Traslacion*/
+                traslacion = Traslacion(puntos, -12, -12);
+                centroT = GetPCentro(traslacion);
+                DibujarFigura(traslacion, Color.Red);
+                WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Red), centroT.X, centroT.Y, 2, 2);
+
                 contador = 0;
                 puntos.Clear();
             }
@@ -73,6 +84,75 @@ namespace transformaciones_homogeneas
         private void buttonClear_Click(object sender, EventArgs e)
         {
             WorkSpace.Refresh();
+        }
+
+        public Point GetPMayor(List<Point> points)
+        {
+            Point mayor = points[0];
+
+            for(int i = 1; i < points.Count; i++)
+            {
+                if(mayor.X < points[i].X)
+                {
+                    mayor.X = points[i].X;
+                }
+                if(mayor.Y < points[i].Y)
+                {
+                    mayor.Y = points[i].Y;
+                }
+            }
+
+            return mayor;
+        }
+
+        public Point GetPMenor(List<Point> points)
+        {
+            Point menor = points[0];
+
+            for (int i = 1; i < points.Count; i++)
+            {
+                if (menor.X > points[i].X)
+                {
+                    menor.X = points[i].X;
+                }
+                if (menor.Y > points[i].Y)
+                {
+                    menor.Y = points[i].Y;
+                }
+            }
+
+            return menor;
+        }
+
+        public Point GetPCentro(List<Point> points)
+        {
+            Point centro = new Point();
+
+            Point menor = GetPMenor(points);
+            Point mayor = GetPMayor(points);
+
+            centro.X = (menor.X + mayor.X) / 2;
+            centro.Y = (menor.Y + mayor.Y) / 2;
+
+            return centro;
+        }
+
+        public List<Point> Traslacion(List<Point> points, int tx, int ty)
+        {
+            List<Point> traslacion = new List<Point>();
+            Point newPoint;
+
+            for(int i = 0; i < points.Count; i++)
+            {
+                newPoint = new Point();
+
+                newPoint.X = points[i].X + tx;
+                newPoint.Y = points[i].Y + ty;
+
+                traslacion.Add(newPoint);
+            }
+
+            return traslacion;
         }
     }
 }
