@@ -149,14 +149,28 @@ namespace transformaciones_homogeneas
         public List<Point> Rotacion(List<Point> points, double grados)
         {
             List<Point> rotacion = new List<Point>();
+            Point point;
+            double teta = 0;
+
+            for(int i = 0; i < points.Count; i++)
+            {
+                point = new Point();
+                teta = (Math.PI * grados) / 180;
+                point.X = (int)((Math.Cos(teta) * points[i].X) - (Math.Sin(teta) * points[i].Y));
+                point.Y = (int)((Math.Sin(teta) * points[i].X) + (Math.Cos(teta) * points[i].Y));
+                rotacion.Add(point);
+            }
 
             return rotacion;
-        } 
+        }
+
+
+        public List<Point>
 
         private void buttonAplicar_Click(object sender, EventArgs e)
         {
-            Point centro, centroT;
-            List<Point> traslacion;
+            Point centro, centroT, centroR;
+            List<Point> traslacion, rotacion;
 
             /*Pruebas de Traslacion*/
             centro = GetPCentro(puntos);
@@ -164,6 +178,17 @@ namespace transformaciones_homogeneas
             centroT = GetPCentro(traslacion);
             DibujarFigura(traslacion, Color.Red);
             WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Red), centroT.X, centroT.Y, 2, 2);
+
+            /*Pruebas de Rotacion*/
+            rotacion = Rotacion(traslacion, 45);
+            DibujarFigura(rotacion, Color.Green);
+            centroR = GetPCentro(rotacion);
+            WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Green), centroT.X, centroT.Y, 2, 2);
+
+            rotacion = Traslacion(rotacion, centro.X, centro.Y);
+            DibujarFigura(rotacion, Color.Orange);
+            WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Orange), centroT.X, centroT.Y, 2, 2);
+
 
             puntos.Clear();
         }
