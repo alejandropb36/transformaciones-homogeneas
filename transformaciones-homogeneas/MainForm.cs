@@ -165,12 +165,22 @@ namespace transformaciones_homogeneas
         }
 
 
-        public List<Point>
+        public List<Point> Escalado(List<Point> points, double tam)
+        {
+            List<Point> escalado = new List<Point>();
+            for(int i = 0; i < points.Count; i++)
+            {
+                escalado.Add(new Point(((int)(points[i].X * tam)), ((int)(points[i].Y * tam))));
+
+            }
+
+            return escalado;
+        }
 
         private void buttonAplicar_Click(object sender, EventArgs e)
         {
-            Point centro, centroT, centroR;
-            List<Point> traslacion, rotacion;
+            Point centro, centroT, centroR, centroE;
+            List<Point> traslacion, rotacion, escalado;
 
             /*Pruebas de Traslacion*/
             centro = GetPCentro(puntos);
@@ -189,6 +199,20 @@ namespace transformaciones_homogeneas
             DibujarFigura(rotacion, Color.Orange);
             WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Orange), centroT.X, centroT.Y, 2, 2);
 
+
+            /*Eslado*/
+            centro = GetPCentro(puntos);
+            traslacion = Traslacion(puntos, -(centro.X), -(centro.Y));
+            escalado = Escalado(traslacion, 2);
+            centroT = GetPCentro(traslacion);
+
+            DibujarFigura(traslacion, Color.Red);
+            centroE = GetPCentro(rotacion);
+            WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Green), centroT.X, centroT.Y, 2, 2);
+
+            DibujarFigura(Escalado, Color.Red);
+            centroE = GetPCentro(rotacion);
+            WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Green), centroT.X, centroT.Y, 2, 2);
 
             puntos.Clear();
         }
