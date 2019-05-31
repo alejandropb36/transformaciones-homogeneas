@@ -35,6 +35,7 @@ namespace transformaciones_homogeneas
         private void WorkSpace_MouseClick(object sender, MouseEventArgs e)
         {
             Point centro;
+
             if (contador < numeroPuntos)
             {
                 puntos.Add(new Point(e.X, e.Y));
@@ -46,7 +47,6 @@ namespace transformaciones_homogeneas
                 centro = GetPCentro(puntos);
                 DibujarFigura(puntos, Color.Blue);
                 WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Blue), centro.X, centro.Y, 2, 2);
-                contador = 0;
             }
         }
 
@@ -75,6 +75,8 @@ namespace transformaciones_homogeneas
         private void buttonClear_Click(object sender, EventArgs e)
         {
             WorkSpace.Refresh();
+            contador = 0;
+            puntos.Clear();
         }
 
         public Point GetPMayor(List<Point> points)
@@ -146,7 +148,7 @@ namespace transformaciones_homogeneas
             return traslacion;
         }
 
-        public List<Point> Rotacion(List<Point> points, double grados)
+        public List<Point> Rotacion(List<Point> points, int grados)
         {
             List<Point> rotacion = new List<Point>();
             Point point;
@@ -168,6 +170,7 @@ namespace transformaciones_homogeneas
         public List<Point> Escalado(List<Point> points, double escala)
         {
             List<Point> escalado = new List<Point>();
+
             for(int i = 0; i < points.Count; i++)
             {
                 escalado.Add(new Point(((int)(points[i].X * escala)), ((int)(points[i].Y * escala))));
@@ -210,7 +213,7 @@ namespace transformaciones_homogeneas
             return reflexion;
         }
 
-        public void TraslacionAnimada(List<Point> points, int tx, int ty, Color color)
+        public void TraslacionAnimada(ref List<Point> points, int tx, int ty, Color color)
         {
             Point centro = GetPCentro(points);
             DibujarFigura(points, color);
@@ -244,58 +247,28 @@ namespace transformaciones_homogeneas
             }
         }
 
-        public void RotacionAnimada(List<Point> points, double grados)
+        public void RotacionAnimada(ref List<Point> points, int grados, Color color)
         {
-            Point centro = GetPCentro(points);
+            for(int i = 0; i <= grados; i++)
+            {
+                DibujarFigura(points, Color.White);
+                points = Rotacion(points, i);
+                DibujarFigura(points, color);
+            }
         }
 
 
         private void buttonAplicar_Click(object sender, EventArgs e)
         {
-            Point centro, centroT, centroR, centroE;
-            List<Point> traslacion, rotacion, escalado;
+            Point centro;
 
-            /*Pruebas de Traslacion
             centro = GetPCentro(puntos);
-            traslacion = Traslacion(puntos, -(centro.X), -(centro.Y));
-            centroT = GetPCentro(traslacion);
-            DibujarFigura(traslacion, Color.Red);
-            WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Red), centroT.X, centroT.Y, 2, 2);
-            */
 
-            /*Pruebas de Rotacion
-            rotacion = Rotacion(traslacion, 45);
-            DibujarFigura(rotacion, Color.Green);
-            centroR = GetPCentro(rotacion);
-            WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Green), centroT.X, centroT.Y, 2, 2);
+            TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
 
-            rotacion = Traslacion(rotacion, centro.X, centro.Y);
-            DibujarFigura(rotacion, Color.Orange);
-            WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Orange), centroT.X, centroT.Y, 2, 2);
-            */
+            RotacionAnimada(ref puntos, 45, Color.Black);
 
-
-            /*Eslado
-            centro = GetPCentro(puntos);
-            traslacion = Traslacion(puntos, -(centro.X), -(centro.Y));
-            escalado = Escalado(traslacion, 2);
-            centroT = GetPCentro(traslacion);
-
-            DibujarFigura(traslacion, Color.Red);
-            centroE = GetPCentro(rotacion);
-            WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Green), centroT.X, centroT.Y, 2, 2);
-
-            escalado = Traslacion(escalado, centro.X, centro.Y);
-            DibujarFigura(escalado, Color.Red);
-            centroE = GetPCentro(escalado);
-            WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Green), centroT.X, centroT.Y, 2, 2);
-            */
-
-            /*Reflexion*/
-
-            TraslacionAnimada(puntos, 0, 0, Color.Black);
-
-            puntos.Clear();
+            TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
         }
     }
 }
