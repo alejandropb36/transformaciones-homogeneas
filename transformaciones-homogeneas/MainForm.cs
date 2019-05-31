@@ -244,6 +244,11 @@ namespace transformaciones_homogeneas
             }
         }
 
+        public void RotacionAnimada(List<Point> points, double grados)
+        {
+            Point centro = GetPCentro(points);
+        }
+
 
         private void buttonAplicar_Click(object sender, EventArgs e)
         {
