@@ -167,13 +167,13 @@ namespace transformaciones_homogeneas
         }
 
 
-        public List<Point> Escalado(List<Point> points, double escala)
+        public List<Point> Escalado(List<Point> points, int escala)
         {
             List<Point> escalado = new List<Point>();
 
             for(int i = 0; i < points.Count; i++)
             {
-                escalado.Add(new Point(((int)(points[i].X * escala)), ((int)(points[i].Y * escala))));
+                escalado.Add(new Point(((points[i].X * escala)), ((points[i].Y * escala))));
             }
 
             return escalado;
@@ -257,6 +257,16 @@ namespace transformaciones_homogeneas
             }
         }
 
+        public void EscaladoAnimado(ref List<Point> points, int escala, Color color)
+        {
+            for (int i = 1; i <= escala; i++)
+            {
+                DibujarFigura(points, Color.White);
+                points = Escalado(points, i);
+                DibujarFigura(points, color);
+            }
+        }
+
 
         private void buttonAplicar_Click(object sender, EventArgs e)
         {
@@ -266,7 +276,9 @@ namespace transformaciones_homogeneas
 
             TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
 
-            RotacionAnimada(ref puntos, 45, Color.Black);
+            EscaladoAnimado(ref puntos, 2, Color.Blue);
+
+            //RotacionAnimada(ref puntos, 45, Color.Black);
 
             TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
         }
