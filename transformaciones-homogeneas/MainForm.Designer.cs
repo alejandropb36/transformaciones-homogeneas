@@ -37,8 +37,6 @@
             this.labelTrasladar = new System.Windows.Forms.Label();
             this.labelTrasladarX = new System.Windows.Forms.Label();
             this.labelTrasladarY = new System.Windows.Forms.Label();
-            this.textBoxRotacion = new System.Windows.Forms.TextBox();
-            this.textBoxEscalar = new System.Windows.Forms.TextBox();
             this.comboBoxReflectar = new System.Windows.Forms.ComboBox();
             this.textBoxTrasladarX = new System.Windows.Forms.TextBox();
             this.textBoxTrasladarY = new System.Windows.Forms.TextBox();
@@ -46,7 +44,9 @@
             this.comboBoxPuntos = new System.Windows.Forms.ComboBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.labelAccion = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTrasformacion = new System.Windows.Forms.ComboBox();
+            this.comboBoxRotacion = new System.Windows.Forms.ComboBox();
+            this.comboBoxEscalado = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // WorkSpace
@@ -54,7 +54,7 @@
             this.WorkSpace.BackColor = System.Drawing.SystemColors.Window;
             this.WorkSpace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.WorkSpace.Location = new System.Drawing.Point(9, 10);
-            this.WorkSpace.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.WorkSpace.Margin = new System.Windows.Forms.Padding(2);
             this.WorkSpace.Name = "WorkSpace";
             this.WorkSpace.Size = new System.Drawing.Size(552, 547);
             this.WorkSpace.TabIndex = 0;
@@ -148,22 +148,6 @@
             this.labelTrasladarY.TabIndex = 8;
             this.labelTrasladarY.Text = "Y: ";
             // 
-            // textBoxRotacion
-            // 
-            this.textBoxRotacion.Location = new System.Drawing.Point(650, 104);
-            this.textBoxRotacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBoxRotacion.Name = "textBoxRotacion";
-            this.textBoxRotacion.Size = new System.Drawing.Size(76, 20);
-            this.textBoxRotacion.TabIndex = 10;
-            // 
-            // textBoxEscalar
-            // 
-            this.textBoxEscalar.Location = new System.Drawing.Point(650, 141);
-            this.textBoxEscalar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBoxEscalar.Name = "textBoxEscalar";
-            this.textBoxEscalar.Size = new System.Drawing.Size(76, 20);
-            this.textBoxEscalar.TabIndex = 11;
-            // 
             // comboBoxReflectar
             // 
             this.comboBoxReflectar.FormattingEnabled = true;
@@ -171,7 +155,7 @@
             "X",
             "Y"});
             this.comboBoxReflectar.Location = new System.Drawing.Point(650, 176);
-            this.comboBoxReflectar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxReflectar.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxReflectar.Name = "comboBoxReflectar";
             this.comboBoxReflectar.Size = new System.Drawing.Size(92, 21);
             this.comboBoxReflectar.TabIndex = 12;
@@ -179,7 +163,7 @@
             // textBoxTrasladarX
             // 
             this.textBoxTrasladarX.Location = new System.Drawing.Point(650, 241);
-            this.textBoxTrasladarX.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTrasladarX.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTrasladarX.Name = "textBoxTrasladarX";
             this.textBoxTrasladarX.Size = new System.Drawing.Size(76, 20);
             this.textBoxTrasladarX.TabIndex = 13;
@@ -187,7 +171,7 @@
             // textBoxTrasladarY
             // 
             this.textBoxTrasladarY.Location = new System.Drawing.Point(650, 280);
-            this.textBoxTrasladarY.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTrasladarY.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxTrasladarY.Name = "textBoxTrasladarY";
             this.textBoxTrasladarY.Size = new System.Drawing.Size(76, 20);
             this.textBoxTrasladarY.TabIndex = 14;
@@ -195,7 +179,7 @@
             // buttonAplicar
             // 
             this.buttonAplicar.Location = new System.Drawing.Point(698, 372);
-            this.buttonAplicar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonAplicar.Margin = new System.Windows.Forms.Padding(2);
             this.buttonAplicar.Name = "buttonAplicar";
             this.buttonAplicar.Size = new System.Drawing.Size(94, 25);
             this.buttonAplicar.TabIndex = 15;
@@ -216,7 +200,7 @@
             "9",
             "10"});
             this.comboBoxPuntos.Location = new System.Drawing.Point(649, 65);
-            this.comboBoxPuntos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxPuntos.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxPuntos.Name = "comboBoxPuntos";
             this.comboBoxPuntos.Size = new System.Drawing.Size(92, 21);
             this.comboBoxPuntos.TabIndex = 16;
@@ -243,25 +227,64 @@
             this.labelAccion.TabIndex = 18;
             this.labelAccion.Text = "Transformacion: ";
             // 
-            // comboBox1
+            // comboBoxTrasformacion
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxTrasformacion.FormattingEnabled = true;
+            this.comboBoxTrasformacion.Items.AddRange(new object[] {
             "Rotacion",
-            "Esclaar",
+            "Escalar",
             "Reflectar",
             "Trasladar"});
-            this.comboBox1.Location = new System.Drawing.Point(685, 326);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(106, 21);
-            this.comboBox1.TabIndex = 19;
+            this.comboBoxTrasformacion.Location = new System.Drawing.Point(685, 326);
+            this.comboBoxTrasformacion.Name = "comboBoxTrasformacion";
+            this.comboBoxTrasformacion.Size = new System.Drawing.Size(106, 21);
+            this.comboBoxTrasformacion.TabIndex = 19;
+            // 
+            // comboBoxRotacion
+            // 
+            this.comboBoxRotacion.FormattingEnabled = true;
+            this.comboBoxRotacion.Items.AddRange(new object[] {
+            "45",
+            "90",
+            "135",
+            "180",
+            "225",
+            "270",
+            "315",
+            "360"});
+            this.comboBoxRotacion.Location = new System.Drawing.Point(649, 103);
+            this.comboBoxRotacion.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxRotacion.Name = "comboBoxRotacion";
+            this.comboBoxRotacion.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxRotacion.TabIndex = 20;
+            // 
+            // comboBoxEscalado
+            // 
+            this.comboBoxEscalado.FormattingEnabled = true;
+            this.comboBoxEscalado.Items.AddRange(new object[] {
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.comboBoxEscalado.Location = new System.Drawing.Point(650, 140);
+            this.comboBoxEscalado.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxEscalado.Name = "comboBoxEscalado";
+            this.comboBoxEscalado.Size = new System.Drawing.Size(92, 21);
+            this.comboBoxEscalado.TabIndex = 21;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 566);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxEscalado);
+            this.Controls.Add(this.comboBoxRotacion);
+            this.Controls.Add(this.comboBoxTrasformacion);
             this.Controls.Add(this.labelAccion);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.comboBoxPuntos);
@@ -269,8 +292,6 @@
             this.Controls.Add(this.textBoxTrasladarY);
             this.Controls.Add(this.textBoxTrasladarX);
             this.Controls.Add(this.comboBoxReflectar);
-            this.Controls.Add(this.textBoxEscalar);
-            this.Controls.Add(this.textBoxRotacion);
             this.Controls.Add(this.labelTrasladarY);
             this.Controls.Add(this.labelTrasladarX);
             this.Controls.Add(this.labelTrasladar);
@@ -280,7 +301,7 @@
             this.Controls.Add(this.labelPuntos);
             this.Controls.Add(this.labelTitulo);
             this.Controls.Add(this.WorkSpace);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Text = "Work Space";
             this.ResumeLayout(false);
@@ -299,8 +320,6 @@
         private System.Windows.Forms.Label labelTrasladar;
         private System.Windows.Forms.Label labelTrasladarX;
         private System.Windows.Forms.Label labelTrasladarY;
-        private System.Windows.Forms.TextBox textBoxRotacion;
-        private System.Windows.Forms.TextBox textBoxEscalar;
         private System.Windows.Forms.ComboBox comboBoxReflectar;
         private System.Windows.Forms.TextBox textBoxTrasladarX;
         private System.Windows.Forms.TextBox textBoxTrasladarY;
@@ -308,7 +327,9 @@
         private System.Windows.Forms.ComboBox comboBoxPuntos;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Label labelAccion;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxTrasformacion;
+        private System.Windows.Forms.ComboBox comboBoxRotacion;
+        private System.Windows.Forms.ComboBox comboBoxEscalado;
     }
 }
 

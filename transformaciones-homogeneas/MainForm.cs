@@ -270,17 +270,83 @@ namespace transformaciones_homogeneas
 
         private void buttonAplicar_Click(object sender, EventArgs e)
         {
+            List<Point> reflectar;
             Point centro;
+            int grados;
+            int escalar;
+            int tx;
+            int ty;
 
-            centro = GetPCentro(puntos);
+            /*Rotacion*/
+            if(comboBoxTrasformacion.SelectedIndex == 0)
+            {
+                if(comboBoxRotacion.Text != "")
+                {
+                    grados = Convert.ToInt32(comboBoxRotacion.SelectedItem.ToString());
+                    centro = GetPCentro(puntos);
 
-            TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
+                    TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
+                    RotacionAnimada(ref puntos, grados, Color.Black);
+                    TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
+                }
+            }
 
-            EscaladoAnimado(ref puntos, 2, Color.Blue);
+            /*Escalado*/
+            if (comboBoxTrasformacion.SelectedIndex == 1)
+            {
+                if(comboBoxEscalado.Text != "")
+                {
+                    centro = GetPCentro(puntos);
+                    escalar = Convert.ToInt32(comboBoxEscalado.SelectedItem.ToString());
 
-            //RotacionAnimada(ref puntos, 45, Color.Black);
+                    TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
+                    EscaladoAnimado(ref puntos, 2, Color.Blue);
+                    TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
+                }
+            }
 
-            TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
+            /*Reflectar*/
+            if (comboBoxTrasformacion.SelectedIndex == 2)
+            {
+                if (comboBoxReflectar.Text != "")
+                {
+                    // En X
+                    if(comboBoxReflectar.SelectedIndex == 0)
+                    {
+                        reflectar = ReflexionX(puntos);
+                        DibujarFigura(reflectar, Color.Red);
+                    }
+                    // En Y
+                    if (comboBoxReflectar.SelectedIndex == 1)
+                    {
+                        reflectar = ReflexionY(puntos);
+                        DibujarFigura(reflectar, Color.Red);
+                    }
+
+                }
+            }
+
+            /*Trasladar*/
+            if (comboBoxTrasformacion.SelectedIndex == 3)
+            {
+                if(textBoxTrasladarX.Text == "")
+                {
+                    tx = 0;
+                }
+                else{
+                    tx = Convert.ToInt32(textBoxTrasladarX.Text.ToString());
+                }
+                if (textBoxTrasladarY.Text == "")
+                {
+                    ty = 0;
+                }
+                else
+                {
+                    ty = Convert.ToInt32(textBoxTrasladarY.Text.ToString());
+                }
+
+                TraslacionAnimada(ref puntos, tx, ty, Color.Blue);
+            }
         }
     }
 }
