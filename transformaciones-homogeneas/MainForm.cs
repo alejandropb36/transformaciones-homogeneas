@@ -176,6 +176,7 @@ namespace transformaciones_homogeneas
             for(int i = 0; i < points.Count; i++)
             {
                 escalado.Add(new Point(((points[i].X * escala)), ((points[i].Y * escala))));
+                Console.WriteLine(points[i].X + " * " + escala + " - " + points[i].Y + " * " + escala);
             }
 
             return escalado;
@@ -275,7 +276,7 @@ namespace transformaciones_homogeneas
             for (int i = 1; i <= escala; i++)
             {
                 WorkSpace.Refresh();
-                //escalado = points;
+                escalado = points;
                 escalado = Traslacion(escalado, -centro.X, -centro.Y);
                 escalado = Escalado(escalado, i);
                 escalado = Traslacion(escalado, centro.X, centro.Y);
@@ -319,7 +320,7 @@ namespace transformaciones_homogeneas
                     escalar = Convert.ToInt32(comboBoxEscalado.SelectedItem.ToString());
 
                     //TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
-                    EscaladoAnimado(ref puntos, 2, Color.Blue);
+                    EscaladoAnimado(ref puntos, escalar, Color.Blue);
                     //TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
                 }
             }
