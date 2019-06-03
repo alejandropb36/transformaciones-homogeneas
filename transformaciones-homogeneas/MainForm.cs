@@ -154,10 +154,12 @@ namespace transformaciones_homogeneas
             Point point;
             double teta = 0;
 
-            for(int i = 0; i < points.Count; i++)
+            teta = (Math.PI * grados) / 180;
+
+            for (int i = 0; i < points.Count; i++)
             {
                 point = new Point();
-                teta = (Math.PI * grados) / 180;
+                
                 point.X = (int)((Math.Cos(teta) * points[i].X) - (Math.Sin(teta) * points[i].Y));
                 point.Y = (int)((Math.Sin(teta) * points[i].X) + (Math.Cos(teta) * points[i].Y));
                 rotacion.Add(point);
@@ -249,22 +251,39 @@ namespace transformaciones_homogeneas
 
         public void RotacionAnimada(ref List<Point> points, int grados, Color color)
         {
+            List<Point> rotacion = points;
+            Point centro = GetPCentro(points);
+
             for(int i = 0; i <= grados; i++)
             {
-                DibujarFigura(points, Color.White);
-                points = Rotacion(points, i);
-                DibujarFigura(points, color);
+                DibujarFigura(rotacion, Color.White);
+                rotacion = Traslacion(rotacion, -centro.X, -centro.Y);
+                rotacion = Rotacion(rotacion, i);
+                rotacion = Traslacion(rotacion, centro.X, centro.Y);
+                DibujarFigura(rotacion, color);
+                System.Threading.Thread.Sleep(100);
             }
+
+            points = rotacion;
         }
 
         public void EscaladoAnimado(ref List<Point> points, int escala, Color color)
         {
+            List<Point> escalado = points;
+            Point centro = GetPCentro(points);
+
             for (int i = 1; i <= escala; i++)
             {
-                DibujarFigura(points, Color.White);
-                points = Escalado(points, i);
-                DibujarFigura(points, color);
+                WorkSpace.Refresh();
+                //escalado = points;
+                escalado = Traslacion(escalado, -centro.X, -centro.Y);
+                escalado = Escalado(escalado, i);
+                escalado = Traslacion(escalado, centro.X, centro.Y);
+                DibujarFigura(escalado, color);
+                System.Threading.Thread.Sleep(100);
             }
+
+            points = escalado;
         }
 
 
@@ -283,11 +302,11 @@ namespace transformaciones_homogeneas
                 if(comboBoxRotacion.Text != "")
                 {
                     grados = Convert.ToInt32(comboBoxRotacion.SelectedItem.ToString());
-                    centro = GetPCentro(puntos);
+                    //centro = GetPCentro(puntos);
 
-                    TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
+                    //TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
                     RotacionAnimada(ref puntos, grados, Color.Black);
-                    TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
+                    //TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
                 }
             }
 
@@ -296,12 +315,12 @@ namespace transformaciones_homogeneas
             {
                 if(comboBoxEscalado.Text != "")
                 {
-                    centro = GetPCentro(puntos);
+                    //centro = GetPCentro(puntos);
                     escalar = Convert.ToInt32(comboBoxEscalado.SelectedItem.ToString());
 
-                    TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
+                    //TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
                     EscaladoAnimado(ref puntos, 2, Color.Blue);
-                    TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
+                    //TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
                 }
             }
 
