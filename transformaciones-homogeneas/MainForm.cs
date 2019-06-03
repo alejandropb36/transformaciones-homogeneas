@@ -236,17 +236,19 @@ namespace transformaciones_homogeneas
             DibujarFigura(points, color);
             for (int i = 0; i != tx; i += incrementoX)
             {
-                DibujarFigura(points, Color.White);
+                WorkSpace.Refresh();
                 points = Traslacion(points, incrementoX, 0);
                 DibujarFigura(points, color);
+                System.Threading.Thread.Sleep(5);
             }
 
             DibujarFigura(points, color);
             for (int i = 0; i != ty; i += incrementoY)
             {
-                DibujarFigura(points, Color.White);
+                WorkSpace.Refresh();
                 points = Traslacion(points, 0, incrementoY);
                 DibujarFigura(points, color);
+                System.Threading.Thread.Sleep(5);
             }
         }
 
@@ -255,14 +257,15 @@ namespace transformaciones_homogeneas
             List<Point> rotacion = points;
             Point centro = GetPCentro(points);
 
-            for(int i = 0; i <= grados; i++)
+            for (int i = 0; i <= grados; i++)
             {
-                DibujarFigura(rotacion, Color.White);
+                WorkSpace.Refresh();
+                rotacion = points;
                 rotacion = Traslacion(rotacion, -centro.X, -centro.Y);
                 rotacion = Rotacion(rotacion, i);
                 rotacion = Traslacion(rotacion, centro.X, centro.Y);
                 DibujarFigura(rotacion, color);
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(5);
             }
 
             points = rotacion;
@@ -291,7 +294,6 @@ namespace transformaciones_homogeneas
         private void buttonAplicar_Click(object sender, EventArgs e)
         {
             List<Point> reflectar;
-            Point centro;
             int grados;
             int escalar;
             int tx;
@@ -303,11 +305,8 @@ namespace transformaciones_homogeneas
                 if(comboBoxRotacion.Text != "")
                 {
                     grados = Convert.ToInt32(comboBoxRotacion.SelectedItem.ToString());
-                    //centro = GetPCentro(puntos);
-
-                    //TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
-                    RotacionAnimada(ref puntos, grados, Color.Black);
-                    //TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
+                    
+                    RotacionAnimada(ref puntos, grados, Color.Blue);
                 }
             }
 
@@ -316,12 +315,8 @@ namespace transformaciones_homogeneas
             {
                 if(comboBoxEscalado.Text != "")
                 {
-                    //centro = GetPCentro(puntos);
                     escalar = Convert.ToInt32(comboBoxEscalado.SelectedItem.ToString());
-
-                    //TraslacionAnimada(ref puntos, -centro.X, -centro.Y, Color.Blue);
                     EscaladoAnimado(ref puntos, escalar, Color.Blue);
-                    //TraslacionAnimada(ref puntos, centro.X, centro.Y, Color.Blue);
                 }
             }
 
