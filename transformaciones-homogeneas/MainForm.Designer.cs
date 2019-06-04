@@ -262,15 +262,16 @@
             // 
             this.comboBoxEscalado.FormattingEnabled = true;
             this.comboBoxEscalado.Items.AddRange(new object[] {
+            "0.5",
+            "1",
+            "1.5",
             "2",
+            "2.5",
             "3",
+            "3.5",
             "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
+            "4.5",
+            "5"});
             this.comboBoxEscalado.Location = new System.Drawing.Point(650, 140);
             this.comboBoxEscalado.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxEscalado.Name = "comboBoxEscalado";

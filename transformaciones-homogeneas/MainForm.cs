@@ -169,13 +169,17 @@ namespace transformaciones_homogeneas
         }
 
 
-        public List<Point> Escalado(List<Point> points, int escala)
+        public List<Point> Escalado(List<Point> points, double escala)
         {
             List<Point> escalado = new List<Point>();
+            int x = 0;
+            int y = 0;
 
             for(int i = 0; i < points.Count; i++)
             {
-                escalado.Add(new Point(((points[i].X * escala)), ((points[i].Y * escala))));
+                x = (int)(points[i].X * escala);
+                y = (int)(points[i].Y * escala);
+                escalado.Add(new Point(x, y));
                 Console.WriteLine(points[i].X + " * " + escala + " - " + points[i].Y + " * " + escala);
             }
 
@@ -271,12 +275,13 @@ namespace transformaciones_homogeneas
             points = rotacion;
         }
 
-        public void EscaladoAnimado(ref List<Point> points, int escala, Color color)
+        public void EscaladoAnimado(ref List<Point> points, double escala, Color color)
         {
             List<Point> escalado = points;
             Point centro = GetPCentro(points);
+            double incremento = 0.5;
 
-            for (int i = 1; i <= escala; i++)
+            for (double i = 0.5; i <= escala; i+= incremento)
             {
                 WorkSpace.Refresh();
                 escalado = points;
@@ -295,7 +300,7 @@ namespace transformaciones_homogeneas
         {
             List<Point> reflectar;
             int grados;
-            int escalar;
+            double escalar;
             int tx;
             int ty;
 
@@ -315,7 +320,7 @@ namespace transformaciones_homogeneas
             {
                 if(comboBoxEscalado.Text != "")
                 {
-                    escalar = Convert.ToInt32(comboBoxEscalado.SelectedItem.ToString());
+                    escalar = Convert.ToDouble(comboBoxEscalado.SelectedItem.ToString());
                     EscaladoAnimado(ref puntos, escalar, Color.Blue);
                 }
             }
