@@ -243,6 +243,7 @@ namespace transformaciones_homogeneas
                 WorkSpace.Refresh();
                 points = Traslacion(points, incrementoX, 0);
                 DibujarFigura(points, color);
+                WorkSpace.CreateGraphics().DrawEllipse(GetPen(color), centro.X, centro.Y, 2, 2);
                 System.Threading.Thread.Sleep(5);
             }
 
@@ -252,6 +253,7 @@ namespace transformaciones_homogeneas
                 WorkSpace.Refresh();
                 points = Traslacion(points, 0, incrementoY);
                 DibujarFigura(points, color);
+                WorkSpace.CreateGraphics().DrawEllipse(GetPen(color), centro.X, centro.Y, 2, 2);
                 System.Threading.Thread.Sleep(5);
             }
         }
@@ -269,6 +271,7 @@ namespace transformaciones_homogeneas
                 rotacion = Rotacion(rotacion, i);
                 rotacion = Traslacion(rotacion, centro.X, centro.Y);
                 DibujarFigura(rotacion, color);
+                WorkSpace.CreateGraphics().DrawEllipse(GetPen(color), centro.X, centro.Y, 2, 2);
                 System.Threading.Thread.Sleep(5);
             }
 
@@ -289,6 +292,7 @@ namespace transformaciones_homogeneas
                 escalado = Escalado(escalado, i);
                 escalado = Traslacion(escalado, centro.X, centro.Y);
                 DibujarFigura(escalado, color);
+                WorkSpace.CreateGraphics().DrawEllipse(GetPen(color), centro.X, centro.Y, 2, 2);
                 System.Threading.Thread.Sleep(100);
             }
 
@@ -299,6 +303,7 @@ namespace transformaciones_homogeneas
         private void buttonAplicar_Click(object sender, EventArgs e)
         {
             List<Point> reflectar;
+            Point centro;
             int grados;
             double escalar;
             int tx;
@@ -335,12 +340,16 @@ namespace transformaciones_homogeneas
                     {
                         reflectar = ReflexionX(puntos);
                         DibujarFigura(reflectar, Color.Red);
+                        centro = GetPCentro(reflectar);
+                        WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Red), centro.X, centro.Y, 2, 2);
                     }
                     // En Y
                     if (comboBoxReflectar.SelectedIndex == 1)
                     {
                         reflectar = ReflexionY(puntos);
-                        DibujarFigura(reflectar, Color.Red);
+                        DibujarFigura(reflectar, Color.Green);
+                        centro = GetPCentro(reflectar);
+                        WorkSpace.CreateGraphics().DrawEllipse(GetPen(Color.Green), centro.X, centro.Y, 2, 2);
                     }
 
                 }
